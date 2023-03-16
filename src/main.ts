@@ -1,8 +1,11 @@
 import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
 import { setupCounter } from './counter'
+import  maskForm  from './application/app.html?raw'
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = ''
+const body = document.querySelector<HTMLDivElement>('#app')
+
+if(body){
+  body.innerHTML = maskForm 
+}
 
 setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
