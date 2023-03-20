@@ -1,11 +1,11 @@
 import './style.css'
 import { setupCounter } from './counter'
-import  maskForm  from './application/app.html?raw'
+import  bodyPage  from './application/app.html?raw'
 
 const body = document.querySelector<HTMLDivElement>('#app')
 
 if(body){
-  body.innerHTML = maskForm 
+  body.innerHTML = bodyPage 
 }
 
 setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
