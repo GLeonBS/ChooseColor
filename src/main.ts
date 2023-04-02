@@ -1,11 +1,10 @@
 import './style.css'
-import { setupCounter } from './counter'
-import  bodyPage  from './application/app.html?raw'
+import  bodyPage  from './application/buscaGato.html?raw'
+import {buscarGato} from './application/buscaGato'
 
 const body = document.querySelector<HTMLDivElement>('#app')
 
 if(body){
   body.innerHTML = bodyPage 
+  buscarGato()
 }
-
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
