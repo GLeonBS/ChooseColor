@@ -1,3 +1,5 @@
+import useEyeDropper from "use-eye-dropper"
+
 export const buscarGato = () => {
     // const baseUrl = 'https://api.thecatapi.com/v1/breeds/';
 
@@ -8,7 +10,7 @@ export const buscarGato = () => {
     
 
     searchButton.addEventListener('click', event => {
-        const dropper  =  new EyeDropper()
+        const dropper  =  useEyeDropper()
         let output = document.querySelector<HTMLDivElement>('.quadrado')!
         dropper.open().then((result: any) => {
             console.log(result.sRGBHex);
