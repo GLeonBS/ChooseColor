@@ -36,6 +36,12 @@ export const chooseColor = () => {
             .open()
             .then((result) => {
                 corAtual.style.backgroundColor = result.sRGBHex
+                if(localStorage.getItem('corSelecionada') != null){
+                    localStorage.setItem('corAnterior', ultimaCor)!
+                    ant = localStorage.getItem('corAnterior')!
+                    corAnterior.style.backgroundColor = ant
+                    rgbAnterior.innerText = ant
+                }
                 localStorage.setItem('corSelecionada', result.sRGBHex)
                 rgbAtual.innerText = result.sRGBHex
                 corTitle.innerText = "Cores:"
@@ -47,12 +53,7 @@ export const chooseColor = () => {
                 errorMessage.style.display = 'block'
                 errorMessage.innerText = " ", e
             })
-        if(localStorage.getItem('corSelecionada') != null){
-            localStorage.setItem('corAnterior', ultimaCor)!
-            ant = localStorage.getItem('corAnterior')!
-            corAnterior.style.backgroundColor = ant
-            rgbAnterior.innerText = ant
-        }
+        
             
     })
     
