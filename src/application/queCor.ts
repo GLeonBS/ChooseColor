@@ -37,7 +37,7 @@ export const chooseColor = () => {
             .open()
             .then((result) => {
                 corAtual.style.backgroundColor = result.sRGBHex
-                if(localStorage.getItem('corSelecionada') != null){
+                if(localStorage.getItem('corSelecionada')){
                     localStorage.setItem('corAnterior', ultimaCor)!
                     ant = localStorage.getItem('corAnterior')!
                     corAnterior.style.backgroundColor = ant
@@ -63,6 +63,8 @@ export const chooseColor = () => {
         localStorage.removeItem('corAnterior')
         localStorage.removeItem('corSelecionada')
         corTitle.innerText = "Você apagou as cores :/"
+        corAnterior.style.backgroundColor = 'transparent'
+        rgbAnterior.innerText = ""
         currentColors.forEach(data => data.style.display = 'none')
         titles.forEach(data => data.style.display = 'none')
     })
