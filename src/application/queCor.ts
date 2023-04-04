@@ -12,6 +12,7 @@ export const chooseColor = () => {
     let ant = localStorage.getItem('corAnterior')!
     let ultimaCor = localStorage.getItem('corSelecionada')!
     console.log(corTitle);
+    const btnLimpa = document.getElementById('btn-limpa')!
 
     if(!localStorage.getItem('corSelecionada')){
         corTitle.innerText = "Ainda não tem nenhuma cor selecionada :/"
@@ -55,6 +56,15 @@ export const chooseColor = () => {
             })
         
             
+    })
+
+    btnLimpa.addEventListener('click', ev => {
+        ev.preventDefault()
+        localStorage.removeItem('corAnterior')
+        localStorage.removeItem('corSelecionada')
+        corTitle.innerText = "Você apagou as cores :/"
+        currentColors.forEach(data => data.style.display = 'none')
+        titles.forEach(data => data.style.display = 'none')
     })
     
 }

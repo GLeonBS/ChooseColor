@@ -25,9 +25,13 @@ h1 {
   line-height: 1.1;
 }
 .back-colors{
+  position: absolute;
+  z-index: -9999;
+  height: 100%;
+  width: 100%;
   background: linear-gradient(45deg, #FDF4F5, #E8A0BF, #BA90C6, #C0DBEA);
   background-size: 300% 300%;
-  animation: color-rotate 20s;
+  animation: color-rotate 10s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
@@ -114,4 +118,9 @@ button {
       -webkit-text-stroke-color: black;
     }
   }
+}
+.footer-card{
+  display: flex;
+  justify-content: end;
+  margin-top: 30px;
 }
