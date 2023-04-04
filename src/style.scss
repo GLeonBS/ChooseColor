@@ -96,17 +96,22 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 50%;
 }
-.cor{
+
+.cores{
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-  height: 100px; 
-  .rgb{
-    font-size: 23px;
-    font-weight: bold;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
+  .cor{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px; 
+    .rgb{
+      font-size: 23px;
+      font-weight: bold;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: black;
+    }
   }
 }

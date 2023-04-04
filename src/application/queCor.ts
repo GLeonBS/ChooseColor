@@ -2,18 +2,29 @@ export const chooseColor = () => {
 
     const chooseButton = document.querySelector<HTMLButtonElement>('.choose-button')!
     const errorMessage = document.querySelector<HTMLSpanElement>('.error')!
-    const output = document.querySelector<HTMLDivElement>('.cor')!
-    const rgb = document.querySelector<HTMLSpanElement>('.rgb')!
-    const corTitle = document.querySelector<HTMLTitleElement>('.cor-title')!
-    const ultimaCor = localStorage.getItem('corSelecionada')!
+    const currentColors = document.querySelectorAll<HTMLDivElement>('.cor')!
+    const titles = document.querySelectorAll<HTMLTitleElement>('.cor-title')!
+    const corAtual = document.getElementById('cor-atual')!
+    const corAnterior = document.getElementById('cor-anterior')!
+    const rgbAtual = document.getElementById('rgb-atual')!
+    const rgbAnterior = document.getElementById('rgb-anterior')!
+    const corTitle = document.getElementById('title-cores')!
+    let ant = localStorage.getItem('corAnterior')!
+    let ultimaCor = localStorage.getItem('corSelecionada')!
     console.log(corTitle);
 
     if(!localStorage.getItem('corSelecionada')){
         corTitle.innerText = "Ainda não tem nenhuma cor selecionada :/"
+        currentColors.forEach(data => data.style.display = 'none')
+        titles.forEach(data => data.style.display = 'none')
       }else {
-        corTitle.innerText = "Última cor selecionada:"
-        output.style.backgroundColor = ultimaCor
-        rgb.innerText = ultimaCor
+        corTitle.innerText = "Cores:"
+        currentColors.forEach(data => data.style.display = 'flex')
+        titles.forEach(data => data.style.display = 'block')
+        corAtual.style.backgroundColor = ultimaCor
+        rgbAtual.innerText = ultimaCor
+        corAnterior.style.backgroundColor = ant
+        rgbAnterior.innerText = ant
       }
 
     chooseButton.addEventListener('click', ev => {
@@ -24,15 +35,25 @@ export const chooseColor = () => {
         dropper
             .open()
             .then((result) => {
-                output.style.backgroundColor = result.sRGBHex
+                corAtual.style.backgroundColor = result.sRGBHex
                 localStorage.setItem('corSelecionada', result.sRGBHex)
-                rgb.innerText = result.sRGBHex
-                corTitle.innerText = "Última cor selecionada:"
+                rgbAtual.innerText = result.sRGBHex
+                corTitle.innerText = "Cores:"
+                currentColors.forEach(data => data.style.display = 'flex')
+                titles.forEach(data => data.style.display = 'block')
+                ultimaCor = localStorage.getItem('corSelecionada')!
             })
             .catch((e) => {
                 errorMessage.style.display = 'block'
                 errorMessage.innerText = " ", e
-            });
+            })
+        if(localStorage.getItem('corSelecionada') != null){
+            localStorage.setItem('corAnterior', ultimaCor)!
+            ant = localStorage.getItem('corAnterior')!
+            corAnterior.style.backgroundColor = ant
+            rgbAnterior.innerText = ant
+        }
+            
     })
     
 }
