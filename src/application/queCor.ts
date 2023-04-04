@@ -14,6 +14,11 @@ export const chooseColor = () => {
     console.log(corTitle);
     const btnLimpa = document.getElementById('btn-limpa')!
 
+    if (!window.EyeDropper) {
+        errorMessage.style.display = 'block'
+        errorMessage.innerText =
+          "Error: Seu navegador ainda não suporta a API de conta gotas :/";
+      }
     if(!localStorage.getItem('corSelecionada')){
         corTitle.innerText = "Ainda não tem nenhuma cor selecionada :/"
         currentColors.forEach(data => data.style.display = 'none')
