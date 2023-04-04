@@ -6,4 +6,5 @@ const body = document.querySelector<HTMLDivElement>('#app')
 
 if(body){
   body.innerHTML = bodyPage 
+  chooseColor()
 }

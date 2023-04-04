@@ -1,17 +1,45 @@
-import useEyeDropper from "use-eye-dropper"
+
 
 export const chooseColor = () => {
 
-    const searchButton = document.querySelector<HTMLButtonElement>('.choose-button')!
+    const chooseButton = document.querySelector<HTMLButtonElement>('.choose-button')!
     const errorMessage = document.querySelector<HTMLSpanElement>('.error')!
-    const output = document.querySelector<HTMLDivElement>('.quadrado')!
-    
-    const eyeDropper = new EyeDropper();
+    const output = document.querySelector<HTMLDivElement>('.cor')!
 
-    searchButton.addEventListener('click', event => {
-        const dropper  =  new (window as any).EyeDropper()
-        dropper.open().then((result: any) => {
-            console.log(result.sRGBHex);
-        })
+    console.log(chooseButton);
+    console.log(errorMessage);
+    console.log(output);
+    
+    
+    
+
+
+    chooseButton.addEventListener('click', () => {
+
+        const dropper = new EyeDropper();
+
+        dropper
+            .open()
+            .then((result) => {
+                console.log(result.sRGBHex);
+            })
+            .catch((e) => {
+                errorMessage.style.display = 'block'
+                errorMessage.innerText = " ", e
+            });
     })
+
+    // chooseButton.onclick = () => {
+    //     const eyeDropper = new EyeDropper();
+
+    //     eyeDropper
+    //         .open()
+    //         .then((result) => {
+    //             console.log(result.sRGBHex);
+    //         })
+    //         .catch((e) => {
+    //             errorMessage.style.display = 'block'
+    //             errorMessage.innerText = " ", e
+    //         });
+    // }
 }
