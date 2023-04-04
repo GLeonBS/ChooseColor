@@ -1,5 +1,3 @@
-
-
 export const chooseColor = () => {
 
     const chooseButton = document.querySelector<HTMLButtonElement>('.choose-button')!
@@ -14,8 +12,9 @@ export const chooseColor = () => {
     
 
 
-    chooseButton.addEventListener('click', () => {
+    chooseButton.addEventListener('click', ev => {
 
+        ev.preventDefault()
         const dropper = new EyeDropper();
 
         dropper
