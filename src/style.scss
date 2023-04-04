@@ -27,19 +27,17 @@ h1 {
 .back-colors{
   background: linear-gradient(45deg, #FDF4F5, #E8A0BF, #BA90C6, #C0DBEA);
   background-size: 300% 300%;
-  animation: colors ease;
-  
+  animation: color-rotate 20s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
-@keyframes colors {
-    0%{
-      background-position: 0% 50%;
-    }
-    50%{
-      background-position: 100% 50%;
-    }
-    100%{
-      background-position: 0% 50%;
-    }
+@keyframes color-rotate {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
 }
 #app {
   max-width: 1280px;
