@@ -17,7 +17,7 @@ export const chooseColor = () => {
     if (!window.EyeDropper) {
         errorMessage.style.display = 'block'
         errorMessage.innerText =
-          "Error: Seu navegador ainda não suporta a API de conta gotas :/";
+          "Error: Seu navegador ainda não suporta a aplicação :/";
       }
     if(!localStorage.getItem('corSelecionada')){
         corTitle.innerText = "Ainda não tem nenhuma cor selecionada :/"
@@ -65,9 +65,14 @@ export const chooseColor = () => {
 
     btnLimpa.addEventListener('click', ev => {
         ev.preventDefault()
+        if(localStorage.getItem('corAnterior')=== null && localStorage.getItem('corSelecionada') === null){
+            corTitle.innerText = "Você não tem cores para apagar ヾ( ･`⌓´･)ﾉﾞ"
+        }else{
+            corTitle.innerText = "Você apagou as cores :/"
+        }
         localStorage.removeItem('corAnterior')
         localStorage.removeItem('corSelecionada')
-        corTitle.innerText = "Você apagou as cores :/"
+        
         corAnterior.style.backgroundColor = 'transparent'
         rgbAnterior.innerText = ""
         currentColors.forEach(data => data.style.display = 'none')
