@@ -19,14 +19,22 @@ export const chooseColor = () => {
         errorMessage.innerText =
           "Error: Seu navegador ainda não suporta a aplicação :/";
       }
-    if(!localStorage.getItem('corSelecionada')){
-        corTitle.innerText = "Ainda não tem nenhuma cor selecionada :/"
+
+    function clearColors() {
         currentColors.forEach(data => data.style.display = 'none')
         titles.forEach(data => data.style.display = 'none')
-      }else {
-        corTitle.innerText = "Cores:"
+    }
+    function showColors() {
         currentColors.forEach(data => data.style.display = 'flex')
         titles.forEach(data => data.style.display = 'block')
+    }
+
+    if(!localStorage.getItem('corSelecionada')){
+        corTitle.innerText = "Ainda não tem nenhuma cor selecionada :/"
+        clearColors()
+      }else {
+        corTitle.innerText = "Cores:"
+        showColors()
         corAtual.style.backgroundColor = ultimaCor
         rgbAtual.innerText = ultimaCor
         corAnterior.style.backgroundColor = ant
@@ -51,8 +59,7 @@ export const chooseColor = () => {
                 localStorage.setItem('corSelecionada', result.sRGBHex)
                 rgbAtual.innerText = result.sRGBHex
                 corTitle.innerText = "Cores:"
-                currentColors.forEach(data => data.style.display = 'flex')
-                titles.forEach(data => data.style.display = 'block')
+                showColors()
                 ultimaCor = localStorage.getItem('corSelecionada')!
             })
             .catch((e) => {
@@ -75,8 +82,7 @@ export const chooseColor = () => {
         
         corAnterior.style.backgroundColor = 'transparent'
         rgbAnterior.innerText = ""
-        currentColors.forEach(data => data.style.display = 'none')
-        titles.forEach(data => data.style.display = 'none')
+        clearColors()
     })
     
 }
