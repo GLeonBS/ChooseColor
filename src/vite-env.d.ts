@@ -14,3 +14,6 @@ interface ColorSelectionResult {
   
     open(): Promise<ColorSelectionResult>
   }
+interface Window {
+  EyeDropper: EyeDropper
+}
