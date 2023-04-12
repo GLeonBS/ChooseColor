@@ -1,12 +1,12 @@
-# Chat-client
+# ChooseColor
 
-A simple Chat developed for a college assignment with the aim of creating a solution using at least 2 [Web APIs](https://developer.mozilla.org/en-US/docs/Web/API).
+A simple eye dropper developed for a college assignment with the aim of creating a solution using at least 2 [Web APIs](https://developer.mozilla.org/en-US/docs/Web/API).
 
 ## Web APIs used
 
 1 - [EyeDropper API](https://developer.mozilla.org/en-US/docs/Web/API/EyeDropper_API) - Used to create a an eyedropper tool. Using this tool, users can sample colors from their screens, including outside of the browser window.
 
-2 - [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage_API) - Used to store a most recent and previous color choice,
+2 - [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage_API) - Used to store a most recent and previous color choice.
 
 ## Getting started
 
