@@ -1,4 +1,4 @@
-# ChooseColor
+# eyeDropper
 
 A simple eye dropper developed for a college assignment with the aim of creating a solution using at least 2 [Web APIs](https://developer.mozilla.org/en-US/docs/Web/API).
 
