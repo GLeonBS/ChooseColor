@@ -1,10 +1,10 @@
 import './style.scss'
-import  bodyPage  from './application/queCor.html?raw'
-import {chooseColor} from './application/queCor'
+import bodyPage from './application/eyeDropper.html?raw'
+import { EyeDropperApplication } from './application/EyeDropperApplication'
 
 const body = document.querySelector<HTMLDivElement>('#app')
 
-if(body){
-  body.innerHTML = bodyPage 
-  chooseColor()
+if (body) {
+  body.innerHTML = bodyPage
+  EyeDropperApplication()
 }

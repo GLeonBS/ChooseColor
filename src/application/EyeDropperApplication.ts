@@ -1,4 +1,4 @@
-export const chooseColor = () => {
+export const EyeDropperApplication = () => {
 
     const chooseButton = document.querySelector<HTMLButtonElement>('.choose-button')!
     const errorMessage = document.querySelector<HTMLSpanElement>('.error')!
@@ -17,8 +17,10 @@ export const chooseColor = () => {
     if (!window.EyeDropper) {
         errorMessage.style.display = 'block'
         errorMessage.innerText =
-          "Error: Seu navegador ainda não suporta a aplicação :/";
-      }
+            "Error: Seu navegador ainda não suporta a aplicação :/";
+        corTitle.style.display = "none"
+
+    }
 
     function clearColors() {
         currentColors.forEach(data => data.style.display = 'none')
@@ -29,17 +31,17 @@ export const chooseColor = () => {
         titles.forEach(data => data.style.display = 'block')
     }
 
-    if(!localStorage.getItem('corSelecionada')){
+    if (!localStorage.getItem('corSelecionada')) {
         corTitle.innerText = "Ainda não tem nenhuma cor selecionada :/"
         clearColors()
-      }else {
+    } else {
         corTitle.innerText = "Cores:"
         showColors()
         corAtual.style.backgroundColor = ultimaCor
         rgbAtual.innerText = ultimaCor
         corAnterior.style.backgroundColor = ant
         rgbAnterior.innerText = ant
-      }
+    }
 
     chooseButton.addEventListener('click', ev => {
 
@@ -50,7 +52,7 @@ export const chooseColor = () => {
             .open()
             .then((result) => {
                 corAtual.style.backgroundColor = result.sRGBHex
-                if(localStorage.getItem('corSelecionada')){
+                if (localStorage.getItem('corSelecionada')) {
                     localStorage.setItem('corAnterior', ultimaCor)!
                     ant = localStorage.getItem('corAnterior')!
                     corAnterior.style.backgroundColor = ant
@@ -66,23 +68,23 @@ export const chooseColor = () => {
                 errorMessage.style.display = 'block'
                 errorMessage.innerText = " ", e
             })
-        
-            
+
+
     })
 
     btnLimpa.addEventListener('click', ev => {
         ev.preventDefault()
-        if(localStorage.getItem('corAnterior')=== null && localStorage.getItem('corSelecionada') === null){
+        if (localStorage.getItem('corAnterior') === null && localStorage.getItem('corSelecionada') === null) {
             corTitle.innerText = "Você não tem cores para apagar ヾ( ･`⌓´･)ﾉﾞ"
-        }else{
+        } else {
             corTitle.innerText = "Você apagou as cores :/"
         }
         localStorage.removeItem('corAnterior')
         localStorage.removeItem('corSelecionada')
-        
+
         corAnterior.style.backgroundColor = 'transparent'
         rgbAnterior.innerText = ""
         clearColors()
     })
-    
+
 }
