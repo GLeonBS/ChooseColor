@@ -18,7 +18,7 @@ A simple eye dropper developed for a college assignment with the aim of creating
 ```
 $ git clone https://github.com/GLeonBS/ChooseColor.git
 
-$ cd ChooseColor
+$ cd eyeDropper
 ```
 
 
